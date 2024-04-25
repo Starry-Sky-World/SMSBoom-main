@@ -32,5 +32,8 @@ jobs:
         run: |
           pyinstaller -F smsboom.py
           echo "ℹ️ [I]打包：完成"
+          echo "ℹ️ [I]当前目录:"
           ls
+          echo "ℹ️ [I]dist目录:"
+          cd dist
 
