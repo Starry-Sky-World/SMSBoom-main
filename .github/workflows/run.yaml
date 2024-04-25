@@ -17,13 +17,20 @@ jobs:
       # 签出项目代码
       - uses: actions/checkout@v3
       # 设置 py3.8 环境
-      - name: 🚀 Set up Python 3.x
+      - name: 🚀 设置Python 3.11环境
         uses: actions/setup-python@v3
         with:
           python-version: '3.11'
       
-      - name: 🚀 Run SMSBoom Script
+      - name: 🚀 安装环境
         # 此处可以自定义命令行运行参数.替换手机号
         run: |
           pip3 install -r requirements.txt
-          python3 smsboom.py run -p ${{ secrets.NUMBER }} -t 32
+          pip3 install -r requirements-dev.txt
+          pip3 install pyinstaller
+          echo "ℹ️ [I]环境安装：完成"
+      - name: 📦 打包
+        run: |
+          pyinstaller -F smsboom.py
+          echo "ℹ️ [I]打包：完成"
+
