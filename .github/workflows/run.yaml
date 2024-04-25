@@ -26,7 +26,6 @@ jobs:
         # 此处可以自定义命令行运行参数.替换手机号
         run: |
           pip3 install -r requirements.txt
-          pip3 install -r requirements-dev.txt
           pip3 install pyinstaller
           echo "ℹ️ [I]环境安装：完成"
       - name: 📦 打包
